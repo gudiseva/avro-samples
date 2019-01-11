@@ -1,0 +1,5 @@
+/* FirmTransactionKey */
+TransactionSource   varchar(50)     NOT NULL
+TransactionId       varchar(50)     NOT NULL
+TransactionDate     date            NOT NULL
+[Version]           bigint          NOT NULL

@@ -1,0 +1,39 @@
+{
+    "type": "record",
+    "name": "TransactionKey",
+    "namespace": "firm.transaction.versioned",
+    "doc": "The key which uniquely identifies transaction",
+    "fields": [{
+        "name": "source",
+        "type": "string",
+        "doc": "transaction source"
+    },
+    {
+        "name": "id",
+        "type": "string",
+        "doc": "transaction id"
+    },
+    {
+        "name": "transactionDate",
+        "type": {
+            "type": "record",
+            "name": "LocalDate",
+            "namespace": "firm.type",
+            "doc": "Type firm.type.LocalDate should be used when you want to serialize & deserialize a java.time.LocalDate instance using avro. \n\t *  On the wire that data is serialized/deserialized (Date is converted into yyyyMMdd and treated as an in on the wire) with the below schema. \n\t *  The firm.schema.common.avro.Record has the required api that convert the java.time.LocalDate to and from this schema.",
+            "fields": [{
+                "name": "value",
+                "type": "int",
+                "doc": "localDate in yyyyMMdd format.",
+                "default": 19000101
+            }],
+            "logicalType": "LocalDate"
+        },
+        "doc": "transaction date (the date when transaction was generated)"
+    },
+    {
+       "name": "version",
+       "type": "int",
+       "doc": "transaction version"
+    }],
+    "root": "true"
+}
